@@ -1,17 +1,17 @@
-# [How to train an object detection model easy for free](https://www.dlology.com/blog/how-to-train-an-object-detection-model-easy-for-free/) | DLology Blog
+
 
 
 
 ## How to Run
 
-Easy way: run [this Colab Notebook](https://colab.research.google.com/github/Tony607/object_detection_demo/blob/master/tensorflow_object_detection_training_colab.ipynb).
+Easy way: run [this Colab Notebook](https://colab.research.google.com/drive/1s6voDlOGC9m9jtwmcyVl1JchHfxHfJZf?usp=sharing).
 
 Alternatively, if you want to use your images instead of ones comes with this repo.
 
 Require [Python 3.5+](https://www.python.org/ftp/python/3.6.4/python-3.6.4.exe) installed.
 ### Fork and clone this repository to your local machine.
 ```
-https://github.com/Tony607/object_detection_demo
+https://github.com/Deepak16ee07/object_Detection
 ```
 ### Install required libraries
 `pip3 install -r requirements.txt`
@@ -33,7 +33,7 @@ Resized images locate in `./data/images/`
 - Commit and push your annotated images and xml files (`./data/images/train` and `./data/images/test`) to your forked repository.
 
 
-### Step 2: Open [Colab notebook](https://colab.research.google.com/github/Tony607/object_detection_demo/blob/master/tensorflow_object_detection_training_colab.ipynb)
+### Step 2: Open [Colab notebook](https://colab.research.google.com/drive/1s6voDlOGC9m9jtwmcyVl1JchHfxHfJZf?usp=sharing)
 - Replace the repository's url to yours and run it.
 
 
@@ -50,37 +50,5 @@ Run the following Jupyter notebook locally.
 ```
 local_inference_test.ipynb
 ```
-# [How to run TensorFlow object detection model faster with Intel Graphics](https://www.dlology.com/blog/how-to-run-tensorflow-object-detection-model-faster-with-intel-graphics/) | DLology Blog
 
-## How to deploy the trained custom object detection model with OpenVINO
 
-Requirements:
-- Frozen TensorFlow object detection model. i.e. `frozen_inference_graph.pb` downloaded from Colab after training.
-- The modified pipeline config file used for training. Also downloaded from Colab after training.
-
-You can also opt to download my [copy](https://github.com/Tony607/object_detection_demo/releases/download/V0.1/checkpoint.zip) of those files from the GitHub Release page.
-
-Run the following Jupyter notebook locally and follow the instructions in side.
-```
-deploy/openvino_convert_tf_object_detection.ipynb
-```
-## Run the benchmark
-
-Examples
-
-Benchmark SSD mobileNet V2 on GPU with FP16 quantized weights.
-```
-cd ./deploy
-python openvino_inference_benchmark.py\
-     --model-dir ./models/ssd_mobilenet_v2_custom_trained/FP16\
-     --device GPU\
-     --data-type FP16\
-     --img ../test/15.jpg
-```
-TensorFlow benchmark on cpu
-```
-python local_inference_test.py\
-     --model ./models/frozen_inference_graph.pb\
-     --img ./test/15.jpg\
-     --cpu
-```
