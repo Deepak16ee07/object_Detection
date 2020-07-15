@@ -31,6 +31,11 @@ Resized images locate in `./data/images/`
 *Tips: use shortcuts (`w`: draw box, `d`: next file, `a`: previous file, etc.) to accelerate the annotation.*
 
 - Commit and push your annotated images and xml files (`./data/images/train` and `./data/images/test`) to your forked repository.
+## add the zip file of the labeled dataset to the repository
+
+### Step 2: Open [Colab notebook](https://colab.research.google.com/drive/1qhjuSbT4DWw-vZ3z40cHXNGUus_fXQED?usp=sharing)
+- Replace the repository's url to yours and run it.
+
 ### For Converting the (.xml to .csv) , (.csv to .tfrecord) and to create tabel_map.pbtext file 
 ```
 https://github.com/De%cd {repo_dir_path}
@@ -49,9 +54,6 @@ https://github.com/De%cd {repo_dir_path}
 !python generate_tfrecord.py --csv_input=data/annotations/test_labels.csv --output_path=data/annotations/test.record --img_path=data/images/test --label_map data/annotations/label_map.pbtxtepak16ee07/object_Detection
 ```
 
-
-### Step 2: Open [Colab notebook](https://colab.research.google.com/drive/1s6voDlOGC9m9jtwmcyVl1JchHfxHfJZf?usp=sharing)
-- Replace the repository's url to yours and run it.
 
 
 ## How to run inference on frozen TensorFlow graph
